@@ -19,8 +19,9 @@ st.set_page_config(
 # Train model if not exists
 if not os.path.exists("model.pkl"):
     import subprocess
+    import sys
     with st.spinner("Training model for first time... please wait..."):
-        subprocess.run(["python", "train_rnn.py"], check=True)
+        subprocess.run([sys.executable, "train_rnn.py"], check=True)
 
 @st.cache_resource
 def load_predictor():
